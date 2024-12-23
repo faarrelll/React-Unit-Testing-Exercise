@@ -1,22 +1,25 @@
-// src/App.jsx
-import { useState } from 'react'
-import Navbar from './components/Navbar'
-import './App.css'
-import Home from './pages/Home'
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home')
-  
-  return (
-    <div className="app">
-      <Navbar setCurrentPage={setCurrentPage} />
-      <div>
-      {currentPage === 'home' && <Home />}
-      {currentPage === 'products' && <div>Products Page</div>}
-      {currentPage === 'contact' && <div>Contact Page</div>}
-      </div>
-    </div>
-  )
+    const [currentPage, setCurrentPage] = useState("home");
+
+    return (
+        <div className="app">
+            <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            <div>
+                {currentPage === "home" && <Home />}
+                {currentPage === "products" && <Products />}
+                {currentPage === "contact" && <Contact />}
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
-export default App
+export default App;

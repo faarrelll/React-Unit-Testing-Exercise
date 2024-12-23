@@ -1,45 +1,41 @@
-import React from "react";
 
-const Navbar = ({ setCurrentPage }) => {
-    const navStyle = {
-        padding: "2rem",
-        backgroundColor: "#333",
-        color: "white",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-    };
+import React from 'react'
 
-    const linkStyle = {
-        color: "white",
-        textDecoration: "none",
-        padding: "0.5rem 1rem",
-        cursor: "pointer",
-        transition: "background-color 0.3s ease",
-    };
+const Navbar = ({ currentPage, setCurrentPage }) => {
+  return (
+    <nav style={{
+      padding: '1rem',
+      backgroundColor: '#333',
+      color: 'white',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }}>
+      <div className="logo" style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+        MyStore
+      </div>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <span 
+          className={currentPage === 'home' ? 'nav-link-active' : 'nav-link'}
+          onClick={() => setCurrentPage('home')}
+        >
+          Home
+        </span>
+        <span 
+          className={currentPage === 'products' ? 'nav-link-active' : 'nav-link'}
+          onClick={() => setCurrentPage('products')}
+        >
+          Products
+        </span>
+        <span 
+          className={currentPage === 'contact' ? 'nav-link-active' : 'nav-link'}
+          onClick={() => setCurrentPage('contact')}
+        >
+          Contact Us
+        </span>
+      </div>
+    </nav>
+  )
+}
 
-    return (
-        <nav style={navStyle}>
-            <div className="logo">Warung Makan Kuncoro</div>
-            <div>
-                <span style={linkStyle} onClick={() => setCurrentPage("home")}>
-                    Home
-                </span>
-                <span
-                    style={linkStyle}
-                    onClick={() => setCurrentPage("products")}
-                >
-                    Products
-                </span>
-                <span
-                    style={linkStyle}
-                    onClick={() => setCurrentPage("contact")}
-                >
-                    Contact Us
-                </span>
-            </div>
-        </nav>
-    );
-};
-
-export default Navbar;
+export default Navbar
