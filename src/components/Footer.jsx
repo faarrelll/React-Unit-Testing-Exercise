@@ -7,9 +7,11 @@ const Footer = () => {
                 style={{
                     textAlign: "center",
                     padding: "2rem",
-                    backgroundColor: "#333",
-                    color: "white",
+                    backgroundColor: "#f0efee",
+                    color: "black",
                     marginTop: "2rem",
+                    borderRadius: "100px 100px 0 0",
+                    position: "relative",
                 }}
             >
                 <p>&copy; 2024 Warung Makan Kuncoro. All rights reserved.</p>

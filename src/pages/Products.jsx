@@ -2,11 +2,9 @@ import { useState } from "react";
 import { products } from "../data/products";
 
 const Products = () => {
-
     const [productList] = useState(products);
     const [category, setCategory] = useState("All");
     const [search, setSearch] = useState("");
-
 
     const filteredProducts = productList.filter((product) => {
         const matchCategory =
@@ -19,13 +17,13 @@ const Products = () => {
 
     const filterStyles = {
         padding: "1rem",
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#f0efee",
         marginBottom: "2rem",
+        borderRadius: "0 0 100px 100px",
     };
 
     return (
         <div className="products-page">
-            {/* Filter Section */}
             <div style={filterStyles}>
                 <div className="filter-container">
                     <select
@@ -54,7 +52,9 @@ const Products = () => {
                         <div className="image-container">
                             <img src={product.image} alt={product.name} />
                         </div>
-                        <h3>{product.name}</h3>
+                        <h3 style={{ color: "rgb(49, 48, 48)" }}>
+                            {product.name}
+                        </h3>
                         <p>Rp {product.price.toLocaleString()}</p>
                     </div>
                 ))}

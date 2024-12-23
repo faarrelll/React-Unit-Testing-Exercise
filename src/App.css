@@ -1,13 +1,41 @@
 .app {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
+.content {
+    flex: 1;
+}
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
 }
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: #f0efee;
+    border-radius: 0 0 100px 100px;
+}
+.logo-image {
+    display: flex;
+    border-radius: 100%;
+    object-fit: cover;
+    width: 220%;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
 .nav-link {
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -15,14 +43,14 @@
 }
 
 .nav-link:hover {
-    color: white;
+    color: black;
     font-weight: 600;
 }
 
 .nav-link-active {
     font-weight: 600;
-    color: white;
-    border-bottom: 2px solid white;
+    color: black;
+    border-bottom: 2px solid black;
 }
 
 .featured-products {
@@ -71,18 +99,19 @@
     font-weight: bold;
 }
 
-/* Tambahkan ke App.css */
 .products-page {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 2rem;
+    flex: 1;
 }
 
 .filter-container {
     display: flex;
     gap: 1rem;
-    max-width: 600px;
+    max-width: 70%;
     margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .filter-select,
@@ -91,6 +120,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .filter-select {
@@ -105,7 +136,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
-    padding: 1rem;
+    padding: 3rem;
 }
 .image-container {
     position: relative;

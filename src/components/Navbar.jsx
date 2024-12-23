@@ -5,13 +5,15 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   return (
     <nav style={{
       padding: '1rem',
-      backgroundColor: '#333',
-      color: 'white',
+      backgroundColor: '#f0efee',
+      color: 'black',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingRight: '2rem',
+      paddingLeft: '2rem',
     }}>
-      <div className="logo" style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
+      <div className="logo" style={{ fontWeight: '600', fontSize: '1rem' }}>
         Warung Makan Kuncoro
       </div>
       <div style={{ display: 'flex', gap: '1rem' }}>

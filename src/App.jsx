@@ -11,8 +11,8 @@ function App() {
 
     return (
         <div className="app">
-            <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-            <div>
+            <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} />
+            <div className="content">
                 {currentPage === "home" && <Home />}
                 {currentPage === "products" && <Products />}
                 {currentPage === "contact" && <Contact />}
