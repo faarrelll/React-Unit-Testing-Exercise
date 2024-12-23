@@ -12,7 +12,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       alignItems: 'center'
     }}>
       <div className="logo" style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>
-        MyStore
+        Warung Makan Kuncoro
       </div>
       <div style={{ display: 'flex', gap: '1rem' }}>
         <span 
