@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import mainLogo from "../assets/images/bg.png";
 import products from "../data/products";
 

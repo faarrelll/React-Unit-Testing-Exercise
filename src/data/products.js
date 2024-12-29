@@ -9,6 +9,7 @@ import soto from "../assets/images/soto.png";
 import eskopi from "../assets/images/kopi.png";
 import bakso from "../assets/images/bakso.png";
 
+
 const bestProducts = [
     {
         id: 1,

@@ -1,25 +1,27 @@
-import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Products from "./pages/Products";
+import { Routes, Route } from "react-router";
+import Contact from "./pages/Contact";
+import Cart from "./pages/Cart";
 
 function App() {
-    const [currentPage, setCurrentPage] = useState("home");
-
-    return (
-        <div className="app">
-            <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} />
-            <div className="content">
-                {currentPage === "home" && <Home />}
-                {currentPage === "products" && <Products />}
-                {currentPage === "contact" && <Contact />}
-            </div>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="app">
+      <Navbar />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
