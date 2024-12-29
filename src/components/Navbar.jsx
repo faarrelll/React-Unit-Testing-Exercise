@@ -1,11 +1,11 @@
 import "react";
-
-import PropTypes from "prop-types";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import { NavLink } from "react-router";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const totalQuantity = useSelector(state => state.cart.totalQuantity);
   return (
     <nav
       style={{
@@ -53,7 +53,7 @@ const Navbar = () => {
             isActive ? "nav-link-active" : "nav-link"
           }
         >
-          <Badge color="error" badgeContent={4}>
+          <Badge color="error" badgeContent={totalQuantity}>
             <ShoppingCartIcon />
           </Badge>
         </NavLink>
@@ -62,9 +62,5 @@ const Navbar = () => {
   );
 };
 
-Navbar.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-  setCurrentPage: PropTypes.func.isRequired,
-};
 
 export default Navbar;
