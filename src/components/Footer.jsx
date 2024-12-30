@@ -1,6 +1,8 @@
 import "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const Footer = () => {
+  const { language, translations } = useLanguage();
   return (
     <div>
       <footer
@@ -14,7 +16,7 @@ const Footer = () => {
           position: "relative",
         }}
       >
-        <p>&copy; 2024 Warung Makan Kuncoro. All rights reserved.</p>
+        <p>{translations[language].footer}</p>
       </footer>
     </div>
   );

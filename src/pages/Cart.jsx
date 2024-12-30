@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity } from "../redux/CartSlice";
+import { useLanguage } from "../context/LanguageContext";
 
 const Cart = () => {
+  const {language, translations} = useLanguage();
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -33,12 +35,12 @@ const Cart = () => {
         }}
       >
         <h2 className="form-title" style={{ color: "rgb(49, 48, 48)" }}>
-          Cart
+          {translations[language].cart}
         </h2>
       </div>
       <div className="cart-page ">
         {cartItems.length === 0 ? (
-          <p style={{ textAlign: "center" }}>Your cart is empty</p>
+          <p style={{ textAlign: "center" }}>{translations[language].cartInfo}</p>
         ) : (
           <>
             <div className="cart-items">
@@ -75,14 +77,14 @@ const Cart = () => {
                     className="remove-button"
                     onClick={() => handleRemoveItem(item.id)}
                   >
-                    Remove
+                    {translations[language].buttonRemove}
                   </button>
                 </div>
               ))}
             </div>
             <div className="cart-summary">
               <h3>Total: Rp {calculateTotal().toLocaleString()}</h3>
-              <button className="checkout-button">Proceed to Checkout</button>
+              <button className="checkout-button">{translations[language].buttonCheckout}</button>
             </div>
           </>
         )}

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
+  const {language, translations} = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -75,7 +77,7 @@ const Contact = () => {
         }}
       >
         <h2 className="form-title" style={{ color: "rgb(49, 48, 48)" }}>
-          Contact Us
+          {translations[language].contactUs}
         </h2>
       </div>
       <div style={formStyles}>
@@ -97,7 +99,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{translations[language].email}</label>
               <input
                 type="email"
                 id="email"
@@ -112,7 +114,7 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Pesan</label>
+              <label htmlFor="message">{translations[language].message}</label>
               <textarea
                 id="message"
                 name="message"
@@ -127,7 +129,7 @@ const Contact = () => {
             </div>
 
             <button type="submit" className="submit-button">
-              Kirim Pesan
+            {translations[language].contactUs}
             </button>
           </form>
         ) : (

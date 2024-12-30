@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { products } from "../data/products";
 import ProductModal from "../components/ProductModal";
+import { useLanguage } from "../context/LanguageContext";
 
 const Products = () => {
+  const {language, translations} = useLanguage();
   const [productList] = useState(products);
   const [category, setCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -53,14 +55,14 @@ const Products = () => {
             onChange={(e) => setCategory(e.target.value)}
             className="filter-select"
           >
-            <option value="All">Semua Kategori</option>
-            <option value="Makanan">Makanan</option>
-            <option value="Minuman">Minuman</option>
+            <option value="All">{translations[language].filterAll}</option>
+            <option value="Makanan">{translations[language].filterFood}</option>
+            <option value="Minuman">{translations[language].filterDrink}</option>
           </select>
 
           <input
             type="text"
-            placeholder="Cari produk..."
+            placeholder= {translations[language].filterSearch}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="search-input"

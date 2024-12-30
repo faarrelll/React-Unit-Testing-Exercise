@@ -55,6 +55,14 @@
   text-decoration: none;
 }
 
+.nav-link-active-cart {
+  font-weight: 600;
+  color: black;
+  border-bottom: 2px solid black;
+  text-decoration: none;
+  margin-right: 7px;
+}
+
 .featured-products {
   padding: 2rem;
   max-width: 1200px;

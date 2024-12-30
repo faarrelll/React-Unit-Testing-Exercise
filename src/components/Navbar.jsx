@@ -2,10 +2,21 @@ import "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import { NavLink } from "react-router";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { useLanguage } from "../context/LanguageContext";
 
 const Navbar = () => {
-  const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const { language, setLanguage, translations } = useLanguage();
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const handleChange = (event, value) => {
+    if (value !== null) {
+      setLanguage(value);
+    }
+  };
+
   return (
     <nav
       style={{
@@ -20,7 +31,7 @@ const Navbar = () => {
       }}
     >
       <div className="logo" style={{ fontWeight: "600", fontSize: "1rem" }}>
-        Warung Makan Kuncoro
+        {translations[language].title}
       </div>
       <div style={{ display: "flex", gap: "1rem" }}>
         <NavLink
@@ -29,7 +40,7 @@ const Navbar = () => {
             isActive ? "nav-link-active" : "nav-link"
           }
         >
-          Home
+          {translations[language].home}
         </NavLink>
         <NavLink
           to="/products"
@@ -37,7 +48,7 @@ const Navbar = () => {
             isActive ? "nav-link-active" : "nav-link"
           }
         >
-          Products
+          {translations[language].products}
         </NavLink>
         <NavLink
           to="/contact"
@@ -45,22 +56,31 @@ const Navbar = () => {
             isActive ? "nav-link-active" : "nav-link"
           }
         >
-          Contact
+          {translations[language].contact}
         </NavLink>
         <NavLink
           to="/cart"
           className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
+            isActive ? "nav-link-active-cart" : "nav-link"
           }
         >
           <Badge color="error" badgeContent={totalQuantity}>
             <ShoppingCartIcon />
           </Badge>
         </NavLink>
+        <ToggleButtonGroup
+          color="primary"
+          value={language}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+        >
+          <ToggleButton value="id">ID</ToggleButton>
+          <ToggleButton value="en">EN</ToggleButton>
+        </ToggleButtonGroup>
       </div>
     </nav>
   );
 };
-
 
 export default Navbar;

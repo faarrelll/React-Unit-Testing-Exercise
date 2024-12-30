@@ -4,6 +4,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import Modal from "@mui/material/Modal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/CartSlice";
+import { useLanguage } from "../context/LanguageContext";
 
 const ProductModal = ({
   open,
@@ -13,6 +14,7 @@ const ProductModal = ({
   onQuantityIncrease,
   onQuantityDecrease,
 }) => {
+  const { language, translations } = useLanguage();
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -91,7 +93,7 @@ const ProductModal = ({
             onClick={() => handleAddToCart(product)}
             className="add-to-cart-button"
           >
-            Add to Cart
+            {translations[language].addToCart}
           </Button>
         </div>
       </div>
