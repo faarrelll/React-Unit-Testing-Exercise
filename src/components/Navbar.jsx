@@ -58,6 +58,7 @@ const Navbar = () => {
         >
           {translations[language].contact}
         </NavLink>
+
         <NavLink
           to="/cart"
           className={({ isActive }) =>

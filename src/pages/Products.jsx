@@ -1,23 +1,38 @@
-import { useState } from "react";
-import { products } from "../data/products";
-import ProductModal from "../components/ProductModal";
+import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import productsService from "../axios/productService";
+import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import ProductModal from "../components/ProductModal";
 
-const Products = () => {
-  const {language, translations} = useLanguage();
-  const [productList] = useState(products);
-  const [category, setCategory] = useState("All");
+export const Products = () => {
+  const { language, translations } = useLanguage();
+  const [products, setProducts] = useState([]);
+  const [totalPage, setTotalPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isModalOpen, setModalOpen] = useState(false); 
+  const [isModalOpen, setModalOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const filteredProducts = productList.filter((product) => {
-    const matchCategory = category === "All" || product.category === category;
-    const matchSearch = product.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    return matchCategory && matchSearch;
-  });
+  const [debouncedSearch] = useDebounce(search, 500);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const { products, totalPages } = await productsService.getAllProducts(
+        page,
+        debouncedSearch,
+        category
+      );
+      setProducts(products);
+      setTotalPage(totalPages);
+      console.log(products);
+      console.log(totalPage);
+    }
+    fetchProducts();
+  }, [page, debouncedSearch, category]);
 
   const handleCardClick = (product) => {
     setSelectedProduct(product);
@@ -30,6 +45,14 @@ const Products = () => {
     setSelectedProduct(null);
   };
 
+  const incrementQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decrementQuantity = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
+  };
+
   const filterStyles = {
     padding: "1rem",
     backgroundColor: "#f0efee",
@@ -37,45 +60,43 @@ const Products = () => {
     borderRadius: "0 0 100px 100px",
   };
 
-
-  const incrementQuantity = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const decrementQuantity = () => {
-    setQuantity((prev) => Math.max(1, prev - 1)); 
-  };
-
   return (
-    <div className="products-page">
+    <div>
       <div style={filterStyles}>
         <div className="filter-container">
           <select
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => {
+              setCategory(e.target.value);
+              setPage(1);
+            }}
             className="filter-select"
           >
             <option value="All">{translations[language].filterAll}</option>
             <option value="Makanan">{translations[language].filterFood}</option>
-            <option value="Minuman">{translations[language].filterDrink}</option>
+            <option value="Minuman">
+              {translations[language].filterDrink}
+            </option>
           </select>
 
           <input
             type="text"
-            placeholder= {translations[language].filterSearch}
+            placeholder={translations[language].filterSearch}
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(1);
+            }}
             className="search-input"
           />
         </div>
       </div>
-
       <div className="products-grid">
-        {filteredProducts.map((product) => (
+        {products?.map((product) => (
           <div
             key={product.id}
             className="product-card"
-            onClick={() => handleCardClick(product)} 
+            onClick={() => handleCardClick(product)}
           >
             <div className="image-container">
               <img src={product.image} alt={product.name} />
@@ -85,9 +106,20 @@ const Products = () => {
           </div>
         ))}
       </div>
-
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <Stack spacing={2}>
+          <Pagination
+            count={totalPage ? totalPage : 1} // Jumlah halaman yang akan ditampilkan
+            page={page} // Tetapkan halaman aktif
+            onChange={(event, value) => {
+              setPage(value); // Update state saat halaman berubah
+              console.log("Halaman yang dipilih:", value);
+            }}
+          />
+        </Stack>
+      </div>
       {/* Modal */}
-      <ProductModal 
+      <ProductModal
         open={isModalOpen}
         onClose={handleModalClose}
         product={selectedProduct}

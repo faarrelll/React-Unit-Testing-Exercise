@@ -23,6 +23,7 @@ const translations = {
     buttonRemove: "Hapus",
     buttonCheckout: "Proses Pesanan",
     footer: "© 2023 Warung Makan Kuncoro. Semua hak dilindungi undang-undang.",
+    productsTable: "Tabel Produk",
  
   },
   en: {
@@ -49,7 +50,7 @@ const translations = {
     buttonRemove: "Remove",
     buttonCheckout: "Proceed to Checkout",
     footer: "© 2023 Kuncoro Food Stall. All rights reserved.",
-   
+    productsTable: "Products Table",
   },
 };
 
