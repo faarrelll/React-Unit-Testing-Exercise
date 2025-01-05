@@ -1,3 +1,5 @@
+import { products } from "../data/products";
+
 const translations = {
   id: {
     title: "Warung Makan Kuncoro",
@@ -24,6 +26,7 @@ const translations = {
     buttonCheckout: "Proses Pesanan",
     footer: "© 2023 Warung Makan Kuncoro. Semua hak dilindungi undang-undang.",
     productsTable: "Tabel Produk",
+    productsDetail: "Detail Produk",
  
   },
   en: {
@@ -51,6 +54,7 @@ const translations = {
     buttonCheckout: "Proceed to Checkout",
     footer: "© 2023 Kuncoro Food Stall. All rights reserved.",
     productsTable: "Products Table",
+    productsDetail: "Product Detail",
   },
 };
 

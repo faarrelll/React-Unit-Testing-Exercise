@@ -30,7 +30,7 @@ const Home = () => {
         <h2 style={{ color: "rgb(49, 48, 48)" }}>{translations[language].homeContent}</h2>
         <div className="product-grid">
           {products.map((i) => (
-            <div key={i} className="product-card">
+            <div key={i.id} className="product-card">
               <div className="image-container">
                 <img src={i.image} alt={`Product ${i.id}`} />
               </div>

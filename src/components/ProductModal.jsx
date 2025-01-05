@@ -5,6 +5,8 @@ import Modal from "@mui/material/Modal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/CartSlice";
 import { useLanguage } from "../context/LanguageContext";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const ProductModal = ({
   open,
@@ -16,8 +18,16 @@ const ProductModal = ({
 }) => {
   const { language, translations } = useLanguage();
   const dispatch = useDispatch();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
+    if (!user) {
+      onClose(); 
+      navigate('/login');
+      return;
+    }
+
     dispatch(
       addToCart({
         id: product.id,
@@ -90,7 +100,7 @@ const ProductModal = ({
 
           <Button
             variant="contained"
-            onClick={() => handleAddToCart(product)}
+            onClick={handleAddToCart}
             className="add-to-cart-button"
           >
             {translations[language].addToCart}

@@ -6,6 +6,7 @@ import { useDebounce } from "use-debounce";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import ProductModal from "../components/ProductModal";
+import { useNavigate } from 'react-router';
 
 export const Products = () => {
   const { language, translations } = useLanguage();
@@ -18,6 +19,7 @@ export const Products = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [debouncedSearch] = useDebounce(search, 500);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -52,6 +54,12 @@ export const Products = () => {
   const decrementQuantity = () => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
+
+  const handleDetailClick = (productId, e) => {
+    e.stopPropagation();
+    navigate(`/product/${productId}`);
+  };
+
 
   const filterStyles = {
     padding: "1rem",
@@ -103,6 +111,12 @@ export const Products = () => {
             </div>
             <h3 style={{ color: "rgb(49, 48, 48)" }}>{product.name}</h3>
             <p>Rp {product.price.toLocaleString()}</p>
+            <button
+              className="detail-button"
+              onClick={(e) => handleDetailClick(product.id, e)}
+            >
+              Detail
+            </button>
           </div>
         ))}
       </div>

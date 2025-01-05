@@ -32,143 +32,143 @@
   "products": [
     {
       "id": 1,
-      "name": "Nasi Goreng",
+      "name": "Nasi Goreng oy",
       "price": 25000,
       "category": "Makanan",
-      "image": "./src/assets/images/nasgor.png"
+      "image": "../src/assets/images/nasgor.png"
     },
     {
       "id": 2,
       "name": "Mie Goreng",
       "price": 23000,
       "category": "Makanan",
-      "image": "./src/assets/images/migor.png"
+      "image": "../src/assets/images/migor.png"
     },
     {
       "id": 3,
       "name": "Es Teh",
       "price": 5000,
       "category": "Minuman",
-      "image": "./src/assets/images/esteh.png"
+      "image": "../src/assets/images/esteh.png"
     },
     {
       "id": 4,
       "name": "Es Jeruk",
       "price": 7000,
       "category": "Minuman",
-      "image": "./src/assets/images/esjeruk.png"
+      "image": "../src/assets/images/esjeruk.png"
     },
     {
       "id": 5,
       "name": "Ayam Goreng",
       "price": 15000,
       "category": "Makanan",
-      "image": "./src/assets/images/ayam.png"
+      "image": "../src/assets/images/ayam.png"
     },
     {
       "id": 6,
       "name": "Sate Ayam",
       "price": 20000,
       "category": "Makanan",
-      "image": "./src/assets/images/sate.png"
+      "image": "../src/assets/images/sate.png"
     },
     {
       "id": 7,
       "name": "Es Campur",
       "price": 12000,
       "category": "Minuman",
-      "image": "./src/assets/images/escampur.png"
+      "image": "../src/assets/images/escampur.png"
     },
     {
       "id": 8,
       "name": "Soto Ayam",
       "price": 17000,
       "category": "Makanan",
-      "image": "./src/assets/images/soto.png"
+      "image": "../src/assets/images/soto.png"
     },
     {
       "id": 9,
       "name": "Es Kopi",
       "price": 8000,
       "category": "Minuman",
-      "image": "./src/assets/images/kopi.png"
+      "image": "../src/assets/images/kopi.png"
     },
     {
       "id": 10,
       "name": "Bakso",
       "price": 15000,
       "category": "Makanan",
-      "image": "./src/assets/images/bakso.png"
+      "image": "../src/assets/images/bakso.png"
     },
     {
       "id": 11,
       "name": "Nasi Goreng Seafood",
       "price": 30000,
       "category": "Makanan",
-      "image": "./src/assets/images/nasgor.png"
+      "image": "../src/assets/images/nasgor.png"
     },
     {
       "id": 12,
       "name": "Mie Goreng Pedas",
       "price": 25000,
       "category": "Makanan",
-      "image": "./src/assets/images/migor.png"
+      "image": "../src/assets/images/migor.png"
     },
     {
       "id": 13,
       "name": "Es Teh Manis",
       "price": 6000,
       "category": "Minuman",
-      "image": "./src/assets/images/esteh.png"
+      "image": "../src/assets/images/esteh.png"
     },
     {
       "id": 14,
       "name": "Es Jeruk Peras",
       "price": 8000,
       "category": "Minuman",
-      "image": "./src/assets/images/esjeruk.png"
+      "image": "../src/assets/images/esjeruk.png"
     },
     {
       "id": 15,
       "name": "Ayam Bakar",
       "price": 18000,
       "category": "Makanan",
-      "image": "./src/assets/images/ayam.png"
+      "image": "../src/assets/images/ayam.png"
     },
     {
       "id": 16,
       "name": "Sate Kambing",
       "price": 25000,
       "category": "Makanan",
-      "image": "./src/assets/images/sate.png"
+      "image": "../src/assets/images/sate.png"
     },
     {
       "id": 17,
       "name": "Es Campur Alpukat",
       "price": 15000,
       "category": "Minuman",
-      "image": "./src/assets/images/escampur.png"
+      "image": "../src/assets/images/escampur.png"
     },
     {
       "id": 18,
       "name": "Soto Lamongan",
       "price": 20000,
       "category": "Makanan",
-      "image": "./src/assets/images/soto.png"
+      "image": "../src/assets/images/soto.png"
     },
     {
       "id": 19,
       "name": "Es Kopi Susu",
       "price": 10000,
       "category": "Minuman",
-      "image": "./src/assets/images/kopi.png"
+      "image": "../src/assets/images/kopi.png"
     },
     {
       "id": 20,
       "name": "Bakso Urat",
       "price": 18000,
       "category": "Makanan",
-      "image": "./src/assets/images/bakso.png"
+      "image": "../src/assets/images/bakso.png"
     }
   ]
 }
