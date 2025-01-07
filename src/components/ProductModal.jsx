@@ -48,6 +48,7 @@ const ProductModal = ({
       onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
+      role="dialog"
     >
       <div className="modal-content">
         {/* Image Section */}
